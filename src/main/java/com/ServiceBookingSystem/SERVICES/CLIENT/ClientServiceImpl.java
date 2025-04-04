@@ -52,7 +52,6 @@ public class ClientServiceImpl implements  ClientService{
                 .collect(Collectors.toList());
     }
 
-
     public boolean bookService(ReservationDTO reservationDTO) {
         Optional<Ad> optionalAd = adRepository.findById(reservationDTO.getAdId());
         Optional<User> optionalUser = userRepository.findById(reservationDTO.getUserId());
