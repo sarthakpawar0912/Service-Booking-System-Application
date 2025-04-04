@@ -15,8 +15,11 @@ public interface CompanyService {
     AdDTO getAdById(Long adId);
 
     boolean updateAd(Long adId,AdDTO adDTO) throws IOException;
+
     boolean deleteAd(Long adId);
+
     List<ReservationDTO> getAllAdBookings(Long companyId);
+
     boolean changeBookingStatus(Long bookingId,String status);
 
 }
