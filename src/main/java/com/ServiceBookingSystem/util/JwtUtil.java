@@ -16,6 +16,7 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtUtil {
+
     public static final String SECRET = "aVeryStrongBase64EncodedSecretKeyForJwtSigning";
 
     public String createToken(Map<String, Object> claims, String userName) {
@@ -37,6 +38,7 @@ public class JwtUtil {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userName);
     }
+
     private Claims extractAllClaims(String token) {
         return Jwts.parser() // Use parserBuilder for modern io.jsonwebtoken library
                 .setSigningKey(getSignKey())
@@ -44,6 +46,7 @@ public class JwtUtil {
                 .parseClaimsJws(token)
                 .getBody();
     }
+
     public <T> T extractClaims(String token,Function<Claims, T> claimsResolver){
         final Claims claims=extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -60,12 +63,10 @@ public class JwtUtil {
     public Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
+
     public Boolean validateToken(String token,UserDetails userDetails) {
         final String username=extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
-
-
-
 
 }
