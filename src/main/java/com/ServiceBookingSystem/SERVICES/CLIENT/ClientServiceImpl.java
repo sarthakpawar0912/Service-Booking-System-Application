@@ -122,9 +122,11 @@ public class ClientServiceImpl implements  ClientService{
                 reservationRepository.save(booking);
                 return true;
             }
+
             return false;
         } catch (Exception e) {
             throw new RuntimeException("Failed to submit review: " + e.getMessage());
         }
     }
+
 }
