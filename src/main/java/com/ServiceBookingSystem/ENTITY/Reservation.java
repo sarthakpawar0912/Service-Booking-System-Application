@@ -14,22 +14,29 @@ import java.util.Date;
 @Entity
 @Data
 public class Reservation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated(EnumType.STRING)
     private ReservationStatus reservationStatus;
+
     @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus;
+
     private Date bookDate;
+
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
     @JoinColumn(name="user_id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
+
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
     @JoinColumn(name = "company_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User company;
+
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
     @JoinColumn(name="ad_id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -37,6 +44,7 @@ public class Reservation {
 
     public ReservationDTO getReservationDTO() {
         ReservationDTO dto= new ReservationDTO();
+
         dto.setId(id);
         dto.setServiceName(ad.getServiceName());
         dto.setBookDate(bookDate);
