@@ -25,7 +25,6 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getAllAds());
     }
 
-
     @GetMapping("/search/{name}")
     public ResponseEntity<?> searchAdByService(@PathVariable String name){
         return ResponseEntity.ok(clientService.searchAdByName(name));
@@ -77,4 +76,5 @@ public class ClientController {
             ));
         }
     }
+
 }
