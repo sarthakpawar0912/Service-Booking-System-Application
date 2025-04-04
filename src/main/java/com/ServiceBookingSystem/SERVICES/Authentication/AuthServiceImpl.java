@@ -36,12 +36,12 @@ public class AuthServiceImpl implements  AuthService {
      @Override
     public UserDto signupCompany(SignupRequestDTO signupRequestDTO) {
         User user = new User();
+
         user.setName(signupRequestDTO.getName());
         user.setEmail(signupRequestDTO.getEmail());
         user.setPhone(signupRequestDTO.getPhone());
         user.setPassword(passwordEncoder.encode(signupRequestDTO.getPassword()));
         user.setRole(UserRole.COMPANY);
-
 
         System.out.println("Role being set for company: " + user.getRole());
 
