@@ -48,9 +48,9 @@ public class AuthServiceImpl implements  AuthService {
         return userRepository.save(user).getDto();
     }
 
-
     @Override
     public Boolean presentByEmail(String email) {
         return userRepository.findFirstByEmail(email) != null;
     }
+
 }
