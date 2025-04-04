@@ -69,8 +69,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 logger.error("Error loading user details or validating token: {}", e.getMessage());
             }
         }
-
         // Continue the filter chain
         filterChain.doFilter(request, response);
     }
+
 }
