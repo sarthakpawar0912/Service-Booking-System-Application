@@ -43,7 +43,6 @@ public class AuthenticationController {
     @Autowired
     private UserRepository userRepository;
 
-
     @PostMapping("/client/sign-up")
     public ResponseEntity<?> signupClient(@RequestBody SignupRequestDTO signupRequestDTO) {
         if (authService.presentByEmail(signupRequestDTO.getEmail())) {
@@ -91,4 +90,6 @@ public class AuthenticationController {
         responseBody.put("token", jwt);
 
         return ResponseEntity.ok(responseBody);
-    }}
+    }
+
+}
