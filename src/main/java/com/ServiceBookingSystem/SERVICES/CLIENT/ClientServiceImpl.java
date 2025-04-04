@@ -71,6 +71,7 @@ public class ClientServiceImpl implements  ClientService{
         return false;
 
     }
+
     public AdDetailsForClientDTO getAdDetailsByAdId(Long adId) {
         Optional<Ad> optionalAd = adRepository.findById(adId);
         if (!optionalAd.isPresent()) {
