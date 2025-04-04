@@ -1,5 +1,4 @@
 package com.ServiceBookingSystem.DTO;
-
 import lombok.Data;
 
 @Data
