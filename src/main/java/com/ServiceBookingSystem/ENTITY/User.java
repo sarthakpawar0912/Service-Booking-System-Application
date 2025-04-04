@@ -20,25 +20,25 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-
     private String name;
 
     private String lastname;
 
     private String phone;
 
-
     @Enumerated(EnumType.STRING) // ✅ Ensure Enum is stored as STRING
     @Column(nullable = false)
     private UserRole role;
 
-
     public UserDto getDto() {
         UserDto userDto= new UserDto();
+
         userDto.setId(id); // ✅ Ensure ID is set correctly
         userDto.setName(name);
         userDto.setEmail(email);
         userDto.setRole(role);
+
         return userDto;
     }
+
 }
