@@ -38,6 +38,7 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isPresent()) {
             Ad ad = new Ad();
+
             ad.setServiceName(adDTO.getServiceName());
             ad.setDescription(adDTO.getDescription());
             ad.setPrice(adDTO.getPrice());
@@ -47,10 +48,8 @@ public class CompanyServiceImpl implements CompanyService {
             adRepository.save(ad);
             return true;
         }
-
         return false;
     }
-
 
     public List<AdDTO> getAllAds(Long userId) {
         return adRepository.findAllByUserId(userId).stream().map(Ad::getAdDto).collect(Collectors.toList());
