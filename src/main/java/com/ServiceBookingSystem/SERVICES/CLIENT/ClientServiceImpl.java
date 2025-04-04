@@ -74,6 +74,7 @@ public class ClientServiceImpl implements  ClientService{
 
     public AdDetailsForClientDTO getAdDetailsByAdId(Long adId) {
         Optional<Ad> optionalAd = adRepository.findById(adId);
+
         if (!optionalAd.isPresent()) {
             throw new RuntimeException("Ad not found with ID: " + adId); // Better error handling
         }
@@ -85,6 +86,7 @@ public class ClientServiceImpl implements  ClientService{
         adDetailsForClientDTO.setReviewDTOList(reviewList.stream().map(Review::getDto).collect(Collectors.toList()));
 
         return adDetailsForClientDTO;
+
     }
 
     public List<ReservationDTO> getAllBookingsByUserId(Long userId){
