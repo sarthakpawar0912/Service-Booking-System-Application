@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class SignupRequestDTO {
+
     private Long id;
 
     private String email;
@@ -18,4 +19,5 @@ public class SignupRequestDTO {
     private String phone;
 
     private UserRole role;
+
 }
