@@ -16,13 +16,18 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String review;
+
     private Date reviewDate;
+
     private Long rating;
+
     @ManyToOne(fetch =FetchType.LAZY,optional =false)
     @JoinColumn(name="user_id",nullable =false )
     @OnDelete(action= OnDeleteAction.CASCADE)
     private User user;
+
     @ManyToOne(fetch =FetchType.LAZY,optional =false)
     @JoinColumn(name="ad_id",nullable =false )
     @OnDelete(action= OnDeleteAction.CASCADE)
@@ -30,6 +35,7 @@ public class Review {
 
     public ReviewDTO getDto() {
         ReviewDTO reviewDTO= new ReviewDTO();
+
         reviewDTO.setId(id);
         reviewDTO.setReview(review);
         reviewDTO.setRating(rating);
@@ -41,4 +47,5 @@ public class Review {
 
         return reviewDTO;
     }
+
 }
