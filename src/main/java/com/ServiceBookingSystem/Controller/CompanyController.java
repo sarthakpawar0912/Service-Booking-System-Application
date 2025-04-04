@@ -58,7 +58,6 @@ public class CompanyController {
         }
     }
 
-
     @PutMapping("/ad/{adId}")
     public ResponseEntity<?>updateAd(@PathVariable Long adId, @ModelAttribute AdDTO adDTO) throws IOException{
         boolean SUCCESS=companyService.updateAd(adId, adDTO);
