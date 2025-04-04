@@ -17,7 +17,6 @@ public class SimpleCorsFilter implements Filter {
 
     private String clientAppUrl = "http://localhost:4200"; // ✅ Set the correct frontend URL
 
-
     public SimpleCorsFilter() {
     }
 
@@ -41,4 +40,5 @@ public class SimpleCorsFilter implements Filter {
             chain.doFilter(req, res);
         }
     }
+
 }
